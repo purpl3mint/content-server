@@ -1,0 +1,1 @@
+export const CABINET_SET_LOGIN = 'CABINET_SET_LOGIN'
