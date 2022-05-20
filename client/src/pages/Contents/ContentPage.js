@@ -27,7 +27,7 @@ export const ContentsPage = () => {
       useEffect(() => { initializeHandler() }, [initializeHandler])
 
     return (
-        <div className="row">
+        <div className="col s9">
             <h1>Контент</h1>
 
             {loading && <Preloader />}

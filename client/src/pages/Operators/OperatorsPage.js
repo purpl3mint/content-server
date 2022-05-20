@@ -27,7 +27,7 @@ export const OperatorsPage = () => {
       useEffect(() => { initializeHandler() }, [initializeHandler])
 
     return (
-        <div className="row">
+        <div className="col s9">
             <h1>Операторы</h1>
 
             {loading && <Preloader />}

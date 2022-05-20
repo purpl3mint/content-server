@@ -17,31 +17,29 @@ export const useRoutes = (isAuthenticated) => {
 
     return (
         <div className="row">
-          
-            <div className="col s12 m12 l12 xl12">
-                { isAuthenticated && <Sidebar />  }
-    
-                {!isAuthenticated && 
-                <Routes>
-                    <Route path="/*" element={<AuthPage />} />
-                </Routes>
-                }
-  
-                { 
-                
-                
-                isAuthenticated &&
-                <Routes>
-                    <Route index element={<CabinetPage />} />
-                    <Route path="/">
-                        <Route path="*" element={<CabinetPage />} />
-                        <Route path="operators" element={<OperatorsPage />} />
-                        <Route path="contents" element={<ContentsPage />} />
-                    </Route>
-                </Routes>
 
-                }
-            </div>
+                    { isAuthenticated && <Sidebar />  }
+        
+                    {!isAuthenticated && 
+                    <Routes>
+                        <Route path="/*" element={<AuthPage />} />
+                    </Routes>
+                    }
+    
+                    { 
+                    
+                    
+                    isAuthenticated &&
+                    <Routes>
+                        <Route index element={<CabinetPage />} />
+                        <Route path="/">
+                            <Route path="*" element={<CabinetPage />} />
+                            <Route path="operators" element={<OperatorsPage />} />
+                            <Route path="contents" element={<ContentsPage />} />
+                        </Route>
+                    </Routes>
+
+                    }
         </div>
     )
   }
