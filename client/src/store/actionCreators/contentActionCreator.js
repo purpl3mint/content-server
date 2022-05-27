@@ -72,12 +72,14 @@ export function contentAdd(form){
 
         XHRRequest.onload = function() {
             if (XHRRequest.status === 200) {
+                dispatch(contentLoadContents())
                 dispatch(contentSetSucceed(true))
                 dispatch(contentClearAddForm())
             }
+
+            dispatch(contentSetPreloader(false))
         }
 
-        dispatch(contentSetPreloader(false))
     }
 }
   

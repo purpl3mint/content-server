@@ -1,7 +1,7 @@
 import './AddContent.css'
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { contentSetAddForm, contentAdd } from "../../store/actionCreators/contentActionCreator"
+import { contentSetAddForm, contentAdd, contentLoadContents } from "../../store/actionCreators/contentActionCreator"
 import { useMessage } from '../../hooks/message.hook';
 import { PATH } from '../../utils/Config'
 
@@ -9,6 +9,7 @@ export const AddContent = (props) => {
     const dispatch = useDispatch()
     const message = useMessage()
     const form = useSelector(state => state.contentReducer.addForm)
+    const loading = useSelector(state => state.contentReducer.preloader)
     const basePath = PATH + '/stat/'
 
     const changeHandler = useCallback( (e) => {
@@ -34,7 +35,7 @@ export const AddContent = (props) => {
         dispatch(contentAdd(form))
 
         props.onCreate()
-    }, [dispatch, form, props, message])
+    }, [dispatch, form, props, message, loading])
 
     const closeHandler = useCallback( () => {
         props.onClose()

@@ -24,7 +24,7 @@ export const ContentsPage = () => {
         dispatch(contentSetSucceed(false))
       }, [dispatch])
     
-      useEffect(() => { initializeHandler() }, [initializeHandler])
+    useEffect(() => { initializeHandler() }, [initializeHandler])
 
     return (
         <div className="col s9">
@@ -48,7 +48,6 @@ export const ContentsPage = () => {
                     show={showModal} 
                     onCreate={() => {
                         setShowModal(false)
-                        initializeHandler()
                     }}
                     onClose={() => {
                     setShowModal(false)

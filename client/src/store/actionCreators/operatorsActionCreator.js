@@ -36,10 +36,11 @@ import {
       const responce = await fetch("/api/operator", {method, headers})
   
       const data = await responce.json()
+
       if (responce.ok) {
         dispatch(operatorSetOperators(data))
-      }
-  
+      } 
+      
       dispatch(operatorSetPreloader(false))
     }
   }
@@ -67,6 +68,7 @@ import {
       const responce = await fetch("/api/operator/registration", {method, body, headers})
   
       if (responce.ok) {
+        dispatch(operatorLoadOperators())
         dispatch(operatorSetSucceed(true))
         dispatch(operatorClearAddForm())
       }
