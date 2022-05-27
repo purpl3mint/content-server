@@ -13,14 +13,14 @@ class ContentController {
         const {file} = req.files
 
         const candidate = await Content.findOne({where: {name}})
-        
-        console.log("URL >", url);
 
         if (candidate)
             return next(ApiError.badRequest("Контент с таким именем уже существует"))
 
-        const urlLocal = name + '.' + file.name.split('.')[1]
-        const urlFinal = url + '.' + file.name.split('.')[1]
+        const splittedFilename = file.name.split('.')
+
+        const urlLocal = name + '.' + splittedFilename[splittedFilename.length - 1]
+        const urlFinal = url + '.' + splittedFilename[splittedFilename.length - 1]
 
         if (file) {
             file.mv(path.resolve(__dirname, '..', 'static', urlLocal))

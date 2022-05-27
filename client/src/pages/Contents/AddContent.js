@@ -15,7 +15,7 @@ export const AddContent = (props) => {
         dispatch(contentSetAddForm(e.target.name, e.target.value))
         dispatch(contentSetAddForm("url", basePath + e.target.value))
 
-    }, [dispatch])
+    }, [dispatch, basePath])
 
     const changeFile = useCallback ( (e) => {
         dispatch(contentSetAddForm(e.target.name, e.target.files[0]))
@@ -34,7 +34,7 @@ export const AddContent = (props) => {
         dispatch(contentAdd(form))
 
         props.onCreate()
-    }, [dispatch, basePath, form, props, message])
+    }, [dispatch, form, props, message])
 
     const closeHandler = useCallback( () => {
         props.onClose()
