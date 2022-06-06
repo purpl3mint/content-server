@@ -9,7 +9,7 @@
 Для установки приложения необходимо установить Node.js версии не ниже 14.  
 Установка для Windows: на сайте https://nodejs.org/en/ скачать версию LTS и установить через .msi пакет  
 Установка для Ubuntu 16.04: необходимо выполнить следующие команды в консоли  
-    `curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh`
+    `curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh`  
     `sudo bash nodesource_setup.sh`
     `sudo apt-get install nodejs`  
 Для проверки корректности установки Node можно выполнить команду  
