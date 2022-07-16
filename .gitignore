@@ -132,3 +132,7 @@ dist
 #sever config
 config/default.json
 config/production.json
+
+#server static
+static
+!static/filler
