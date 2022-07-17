@@ -3,14 +3,15 @@ import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { contentSetAddForm, contentAdd, contentLoadContents } from "../../store/actionCreators/contentActionCreator"
 import { useMessage } from '../../hooks/message.hook';
-import { PATH } from '../../utils/Config'
 
 export const AddContent = (props) => {
     const dispatch = useDispatch()
     const message = useMessage()
     const form = useSelector(state => state.contentReducer.addForm)
     const loading = useSelector(state => state.contentReducer.preloader)
-    const basePath = PATH + '/stat/'
+
+    const URL = process.env.REACT_APP_URL || window.location.href
+    const basePath = URL + '/stat/'
 
     const changeHandler = useCallback( (e) => {
         dispatch(contentSetAddForm(e.target.name, e.target.value))
