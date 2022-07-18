@@ -135,4 +135,3 @@ config/production.json
 
 #server static
 static
-!static/filler

@@ -1,3 +1,4 @@
+const fs = require('fs')
 const express = require('express')
 const config = require('config')
 const bcrypt = require('bcrypt')
@@ -51,11 +52,25 @@ const seed = async () => {
   
 }
 
+const checkStaticDirectory = async () => {
+  const directoryName = 'static/'
+
+  fs.access(directoryName, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.log(`${directoryName} does not exist`);
+      fs.mkdirSync(directoryName)
+    } else {
+      console.log(`${directoryName} exists`);
+    }
+  })
+}
+
 const start = async () => {
     try {
       await sequelize.authenticate()
       await sequelize.sync()
       await seed()
+      await checkStaticDirectory()
       app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
     } catch (e) {
       console.log(e);
